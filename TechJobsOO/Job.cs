@@ -30,6 +30,16 @@ namespace TechJobsNS
             JobCoreCompetency = new CoreCompetency(jobCoreCompetency);
         }
 
+        public Job(string jobName, Employer employer, Location location, PositionType jobType, CoreCompetency jobCoreCompetency) : this()
+        {
+            Name = jobName;
+            EmployerName = employer;
+            EmployerLocation = location;
+            JobType = jobType;
+            JobCoreCompetency = jobCoreCompetency;
+        }
+
+        // TODO: Generate Equals() and GetHashCode() methods.
         public override bool Equals(object obj)
         {
             return obj is Job job &&
@@ -41,7 +51,61 @@ namespace TechJobsNS
             return HashCode.Combine(Id);
         }
 
+        public override string ToString()
+        {
+            bool idOnly = true;
+            string output = "\n";
+            output += "ID: " + Id;
+            output += "\nName: ";
+            if (Name == null || String.IsNullOrEmpty(Name) || String.IsNullOrEmpty(Name.Trim())) {
+                output += "Data not available";
+            } else {
+                output += Name;
+                idOnly = false;
+            };
+            output += "\nEmployer: ";
+            if (EmployerName == null || String.IsNullOrEmpty(EmployerName.Value) || String.IsNullOrEmpty(EmployerName.Value.Trim())) {
+                output += "Data not available";
+            }
+            else
+            {
+                output += EmployerName.Value;
+                idOnly = false;
+            };
+            output += "\nLocation: ";
+            if (EmployerLocation == null || String.IsNullOrEmpty(EmployerLocation.Value) || String.IsNullOrEmpty(EmployerLocation.Value.Trim())) {
+                output += "Data not available";
+            }
+            else
+            {
+                output += EmployerLocation.Value;
+                idOnly = false;
+            };
+            output += "\nPosition Type: ";
+            if (JobType == null || String.IsNullOrEmpty(JobType.Value) || String.IsNullOrEmpty(JobType.Value.Trim())) {
+                output += "Data not available";
+            }
+            else
+            {
+                output += JobType.Value;
+                idOnly = false;
+            };
+            output += "\nCore Competency: ";
+            if (JobCoreCompetency == null || String.IsNullOrEmpty(JobCoreCompetency.Value) || String.IsNullOrEmpty(JobCoreCompetency.Value.Trim())) {
+                output += "Data not available";
+            }
+            else
+            {
+                output += JobCoreCompetency.Value;
+                idOnly = false;
+            };
+            output += "\n";
+            if (idOnly)
+            {
+                return "\n“OOPS! This job does not seem to exist.\n";
+            }
+            return output;
+        }
 
-        // TODO: Generate Equals() and GetHashCode() methods.
-    }
-}
+    } // class
+} // namespace
