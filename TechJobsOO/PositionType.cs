@@ -1,5 +1,5 @@
 ﻿using System;
-namespace TechJobsOO
+namespace TechJobsNS
 {
     public class PositionType
     {

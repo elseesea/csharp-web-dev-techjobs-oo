@@ -1,11 +1,12 @@
 ﻿using System;
-namespace TechJobsOO
+namespace TechJobsNS
 {
     public class CoreCompetency
     {
         private int Id { get; }
         private static int nextId = 1;
-        private string Value { get; set; }
+        //private string Value { get; set; } // CHANGED TO PUBLIC BY LIH
+        public string Value { get; set; }
 
         // TODO: Change the fields to auto-implemented properties.
 
